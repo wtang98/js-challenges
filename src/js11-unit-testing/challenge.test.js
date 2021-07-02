@@ -1,1 +1,1 @@
-import * as challenge from "./js13";
+import * as challenge from "./js11";
