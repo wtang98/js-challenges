@@ -22,7 +22,8 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  const trueBool = booleanArr.filter(boolean => boolean != false);
+  return (trueBool);
 };
 
 /**
@@ -34,7 +35,8 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+    const createPercentageList = numbersArr.map((number) => `${number *100}%`)
+    return createPercentageList;
 };
 
 /**
@@ -47,7 +49,8 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  const createListOfPoessessions = possessionsArr.map((possesion) => `${name} ${possesion}`)
+  return createListOfPoessessions;
 };
 
 /**
@@ -72,7 +75,10 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  const convertStringToNumbersArray = numberString.split("+").map(number =>{
+  return parseInt(number);
+  });
+  return convertStringToNumbersArray;
 };
 
 /**
@@ -84,7 +90,14 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  const createOddEvenArray = numberString.split("+").map(number => {
+    if(number%2===0){
+      return "even"
+    }else{
+      return "odd"
+    }
+  })
+  return createOddEvenArray;
 };
 
 /**
@@ -97,7 +110,9 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  const filterBooksBySearch = booksArr.filter(book=> book.includes(searchTerm));
+  // const filterBooksBySearch = searchTerm.filter(search => search = "Google");
+  return filterBooksBySearch;
 };
 
 /**
@@ -143,6 +158,7 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
+  const formatString = string.
   return;
 };
 
@@ -170,5 +186,25 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
+  const output = [];
+  const cleanedArr = mixedArray.filter((mixed) => {
+    if (mixed >=0 && parseInt(mixed)){
+      return true;
+    }else{
+      return false;
+    }
+  });
+
+  const fizzBuzz = cleanedArr.forEach((mixed) => {
+  if(mixed%3===0 && mixed%5===0){
+    output.push ("FizzBuzz");
+  }else if(mixed%3 ===0){
+    output.push ("Fizz");
+  }else if(mixed%5===0){
+    output.push ("Buzz");
+  }else{
+    output.push (mixed.toString());
+  }
+  });
+  return output
 };

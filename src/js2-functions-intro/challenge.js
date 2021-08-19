@@ -17,7 +17,8 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName, lastName) => {
-  /* Write your code here */
+  const fullName = `${firstName} ${lastName}`
+  return fullName;
 };
 
 /**
@@ -28,8 +29,11 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const findSmallestNumber = (number1, number2) => {
+  if(number1< number2){
+    return number1;
+  }
+  return number2;
 };
 
 /**
@@ -40,8 +44,9 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const multiplyNumbers = (number1, number2) => {
+  const multiple = number1*number2;
+  return multiple;
 };
 
 /* Intermediate Challenges */
@@ -57,7 +62,13 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  if(score > highScore){
+    return "You got a new high score!";
+  }if (score === highScore){
+    return "So close!";
+  }else{
+    return "Better luck next time!";
+  }
 };
 
 /**
@@ -67,7 +78,8 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+  const fahrenheit = (tempInCelsius*1.8)+32;
+  return `${tempInCelsius} degrees celsius is ${fahrenheit} degrees fahrenheit`;
 };
 
 /**
@@ -80,7 +92,8 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  const supply = (((maxAge - age)* 365))*snickersPerDay;
+  return supply;
 };
 
 /* Advanced Challenges */
@@ -100,8 +113,27 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
-};
+  if(typeof score !== "number"){
+    return "Score unavailable";
+  }else if(score > 100){
+    return "Score unavailable";
+  }else if (score < 0){
+    return "Score unavailable";
+  }else if (score <= 100 && score >= 80){
+    return "A";
+  }else if (score < 80 && score >= 70){
+    return "B";
+  }else if (score < 70 && score >= 60){
+    return "C";
+  }else if (score < 60 && score >= 50){
+    return "D";
+  }else if (score < 50 && score >= 40){
+    return "E";
+  }else if (score < 40 && score >= 0){
+    return "F";
+  }
+}
+
 
 /**
  * A function that find the area of a circle to 2 decimal places.
@@ -110,8 +142,11 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCirlce = (radius) => {
-  /* Write your code here */
-};
+    const circleArea = Math.PI * (radius*radius);
+    const roundedArea = circleArea.toFixed(2);
+    return parseFloat(roundedArea);
+  }
+
 
 /* Expert Challenge */
 
@@ -131,5 +166,27 @@ export const calculateAreaOfCirlce = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
-};
+  const summary = getGrade(score);
+  switch(summary){
+    case "A":
+      return `Congratulations ${name}! You achieved a grade of ${summary}.`;
+      break;
+    case "B":
+      return `Well done ${name}! You achieved a grade of ${summary}.`
+      break;
+    case "C":
+      return `Nicely done ${name}! You achieved a grade of ${summary}.`
+      break;
+    case "D":
+      return `That's okay ${name}. You achieved a grade of ${summary}.`
+      break;
+    case "E":
+      return `Too bad ${name}. You achieved a grade of ${summary}.`
+      break;
+    case "F":
+      return `Sorry ${name}. You achieved a grade of ${summary}. There's always next year.`
+      break;
+    default:
+      return `My apologies ${name}, there's been an error in processing your grade.`
+  }
+}

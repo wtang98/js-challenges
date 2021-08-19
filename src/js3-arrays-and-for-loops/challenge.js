@@ -21,8 +21,9 @@
  * @return {string} "Bacon+Lettuce+Tomato"
  */
 
+const ingredientsArr = ["Bacon","Lettuce","Tomato", "Onion"];
 export const createRecipeString = (ingredientsArr) => {
-  return;
+  return ingredientsArr.join("+");
 };
 
 /**
@@ -32,8 +33,11 @@ export const createRecipeString = (ingredientsArr) => {
  * @return {string[]} ["Tony","Dave"]
  */
 
+const itemsArr = ["Tony","John","Dave"];
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+  const firstNameArr = itemsArr[0];
+  const lastNameArr = itemsArr[itemsArr.length -1];
+  return [firstNameArr, lastNameArr];
 };
 
 /**
@@ -44,7 +48,11 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+  let totalScores = 0;
+  for (let index = 0; index < scoreArr.length; index++) {
+    totalScores += scoreArr[index]; 
+  }
+  return totalScores;
 };
 
 /**
@@ -60,7 +68,11 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  let totalRange = 0;
+  for (let index = 0; index <= rangeMax; index++){
+    totalRange += index;
+  }
+  return totalRange;
 };
 
 /**
@@ -71,7 +83,10 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  const newMove = [...itemsArr];
+  const moveLast = newMove.unshift(newMove.pop());
+
+  return newMove;
 };
 
 /**
@@ -89,7 +104,9 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+  
+  const odd = numberArr.filter(index => index%2);
+  return odd;
 };
 
 /**
@@ -105,7 +122,17 @@ export const removeEvenNumbers = (numberArr) => {
  */
 
 export const generateAverage = (numberArr) => {
-  return;
+  let generateAverage = 0;
+  for (let index = 0; index < numberArr.length; index++){
+    generateAverage += numberArr[index];
+  }
+  if(numberArr.length > 0){
+    let total = generateAverage/ numberArr.length;
+    let divide = Math.ceil(total);
+    return divide;
+  }else if (numberArr.length <=0){
+    return 0;
+  }
 };
 
 /**
@@ -116,7 +143,9 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return;
+  const newOrder = [...toReverseArr]
+  const reversed = newOrder.reverse();
+  return reversed;
 };
 
 /**
@@ -138,7 +167,17 @@ export const reverseOrder = (toReverseArr) => {
  */
 
 export const generateHighscores = (playersArr, scoresArr) => {
-  return;
+  const scores = [];
+  if(playersArr.length !== scoresArr.length || !playersArr.length){
+    return "invalid inputs";
+  }else{
+    playersArr.forEach(player => {
+      const index = player.length;
+      const message = `P:${index+1} ${playersArr[index]} scored ${scoresArr[index]}`
+      scores.push(message);
+    });
+  }
+  return scores;
 };
 
 /**
@@ -168,5 +207,6 @@ export const generateHighscores = (playersArr, scoresArr) => {
 // };
 
 export const encryptString = (toEncrypt) => {
+  
   return;
 };
